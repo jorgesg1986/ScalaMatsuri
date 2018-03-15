@@ -16,7 +16,6 @@ var worldmap = new Datamap({
     responsive: true,
     done: function(datamap) {
         datamap.svg.call(d3.behavior.zoom().on("zoom", redraw));
-        //$("#resetZoom").on("click", function(){ resetZoom(); })
         function redraw() {
             datamap.svg.selectAll("g").attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
         }
@@ -64,33 +63,6 @@ var func = function(geo, data) {
     return "<div class='hoverinfo tooltip'>" + tip + '</div>';
 }
 
-/* Function to push a bubble onto the map for testing purposes
-
-setInterval(myMethod, 1000);
-
-var longitude = -130;
-
-function myMethod() {
-
-    longitude = longitude + 1;
-
-    var bubble = {
-                "id": 12345,
-                "name": "Jorge",
-                "text": "Holaaaaaa",
-                "latitude": 40,
-                "longitude": longitude,
-                "fillKey": 1
-            };
-
-    var bubble_array = [];
-    bubble_array.push(bubble);
-    worldmap.bubbles(bubble_array, {
-        popupTemplate: func
-    });
-}
-*/
-
 source.onmessage = function(event) {
 
     console.log(event.data);
@@ -112,21 +84,5 @@ source.onmessage = function(event) {
             popupTemplate: func
         });
     }
-
-    //Added these placeholders for future reference
-    /*d3.selectAll(".datamaps-bubble").on('click', function(bubble) {
-        console.log(bubble);
-    });
-
-    d3.selectAll('#worldmap').on('mouseout', function(info) {
-      if (d3.event.target.tagName == "circle"){
-      	console.log(d3.select(d3.event.target).data()[0],"out")
-      }
-    });
-    d3.selectAll('#worldmap').on('mouseover', function(info) {
-      if (d3.event.target.tagName == "circle"){
-      	console.log(d3.select(d3.event.target).data()[0],"over")
-      }
-    });*/
 
 };

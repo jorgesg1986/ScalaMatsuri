@@ -65,7 +65,6 @@ object Functions {
     val settings: ConsumerSettings[String, Tweet] = ConsumerSettings(system, keyDeserializer, valueDeserializer)
       .withBootstrapServers("localhost:9092")
       .withGroupId("play-server")
-      .withProperty("auto.offset.reset", "earliest")
 
     val subscription = Subscriptions.topics(Set("matsuri"))
 
