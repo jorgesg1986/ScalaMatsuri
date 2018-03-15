@@ -1,0 +1,10 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.MatsuriController.index
+# An example controller showing how to use dependency injection
+GET     /stream                     controllers.MatsuriController.stream
+# JS files for index.html
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

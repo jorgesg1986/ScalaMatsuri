@@ -1,0 +1,9 @@
+target/
+*.zip
+.idea/
+stanford*.jar
+twitter4j.properties
+project/project/
+Release.key
+embedded_kafka/
+embedded_zookeeper/
